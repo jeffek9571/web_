@@ -1,27 +1,24 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import axios from "axios"
 defineProps({
   msg: String
 })
 
-// export default {
-//   data() {
-//     return {
-//       info:null
-//     }
-//   },
-//   methods:{
-//     get(){
-//      axios
-//       .get('https://www.runoob.com/try/ajax/json_demo.json')
-//       .then(response => (this.info = response.data.sites))
-//       .catch(function (error) { // 请求失败处理
-//         console.log(error);
-//       }); 
-//     }
-//   }
-// }
+const info = ref("")
+
+onMounted(()=>{
+    axios
+      .get('https://randomuser.me/api/?results=50')
+      .then(response => {
+        info.value = response.data.results
+        console.log(response.data.results);
+        
+      })
+      .catch(function (error) { 
+        console.log(error);
+      }); 
+})
 
 const count1 = ref(0)
 const count = ()=>{
@@ -32,7 +29,7 @@ const count = ()=>{
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <!-- <h1>{{ msg }}</h1>
 
   <p>
     Recommended IDE setup:
@@ -53,12 +50,54 @@ const count = ()=>{
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
-  <div v-for="site in info" :key="site.id">{{site.name}}</div>
+  </p> -->
+
+
+  <div class="container" v-for="data in info" :key="data.id" >
+    <a class="btn" :href="data.picture.large" v-if="data.dob.age>30">
+      <img class="pic" :src="data.picture.large" alt="Lamp">
+      <p class="text" v-if="data.dob.age>30">{{data.name.first}}</p>
+    </a>
+    
+  </div>
 </template>
 
 <style scoped>
-a {
+.container {
+  
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  /* background: lightcoral; */
+}
+
+
+
+.btn {
+  border:1px solid gray;
+  border-radius:3%;
+  margin: 5px;
   color: #42b983;
+  background: white;
+  /* display: flex;
+  justify-content: space-between; */
+  /* background: lightcoral; */
+}
+
+.btn:hover {
+  /* width: 100px;
+  height: 100px; */
+  transform: scale(1.2) ;
+  /* transition:  1s,ease-in-out; */
+}
+
+.pic {
+  
+  border-radius:25%;
+  padding: 24px;
+  width: 128px;
+  height: 128px;
+  /* background: rgb(128, 132, 240); */
 }
 </style>
