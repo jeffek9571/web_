@@ -16,6 +16,16 @@ import HelloWorld from './components/HelloWorld.vue'
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  left: 0;
+  right: 0;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+@media (max-width:768px) {
+  #app{
+    margin-top: 20%;
+    margin-bottom: 15%;
+  }
 }
 </style>
