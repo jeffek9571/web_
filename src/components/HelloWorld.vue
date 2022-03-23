@@ -98,7 +98,7 @@ function getPic(){
           HELLO
         </h1>
 
-        <loader msg="" v-if="ui_control._loader===true"></loader>
+        <!-- <loader msg="" v-if="ui_control._loader===true"></loader> -->
 
         <div class="nav-header" v-if="ui_control._nav_bar === true">
           <navItem msg="HOME"></navItem>
@@ -115,6 +115,7 @@ function getPic(){
       </div>
   </nav>
 
+  <loader msg="" v-if="ui_control._loader===true"></loader>
 
   <div class="box" @click="control_Navbar">
     <div class="container" v-for="data in ui_control._info" :key="data.id" >
@@ -154,7 +155,7 @@ button{
 }
 
 navItem{
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .container {
@@ -169,10 +170,11 @@ navItem{
 
 
 .box{
-  min-height: 100vh;
+  min-height: 70vh;
   /* background-image: linear-gradient(165deg,white,
   white,50%,gray 50%); */
 }
+
 
 /* .clear{
   clear: both;

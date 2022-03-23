@@ -33,10 +33,10 @@
 .la-pacman {
     display: block;
     font-size: 0;
-    color: #fff;
+    color: #333;
 }
 .la-pacman.la-dark {
-    color: #333;
+    color: #fff;
 }
 .la-pacman > div {
     display: inline-block;
