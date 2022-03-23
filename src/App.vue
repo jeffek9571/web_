@@ -18,14 +18,26 @@ import HelloWorld from './components/HelloWorld.vue'
   color: #2c3e50;
   left: 0;
   right: 0;
-  margin-top: 10%;
-  margin-bottom: 10%;
+  margin-top: 8%;
+  margin-bottom: 8%;
 }
 
 @media (max-width:768px) {
   #app{
     margin-top: 20%;
     margin-bottom: 15%;
+  }
+}
+@media (max-width:375px) {
+  #app{
+    margin-top: 25%;
+    margin-bottom: 15%;
+  }
+}
+@media (max-width:315px) {
+  #app{
+    margin-top: 30%;
+    margin-bottom: 20%;
   }
 }
 </style>
