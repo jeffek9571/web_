@@ -25,6 +25,7 @@ img{
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+  cursor: pointer;
 }
 ul{
     border-radius: 10px;

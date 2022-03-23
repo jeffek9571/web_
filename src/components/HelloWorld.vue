@@ -154,10 +154,6 @@ button{
   display:none;
 }
 
-navItem{
-  cursor: pointer;
-}
-
 .container {
   /* display: flex; */
   display: inline-flex;
